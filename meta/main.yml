@@ -1,0 +1,3 @@
+---
+dependencies:
+  - { role: bulv1ne.nodejs, tags: nodejs }
