@@ -1,11 +1,4 @@
 ---
-
-- name: Install dependencies for compiling node-gyp
-  action: apt pkg="{{ item }}" state=present
-  with_items:
-    - make
-    - g++
-
 - name: Install maildev
   npm: name=maildev global=yes state=present
 
