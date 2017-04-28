@@ -1,3 +1,0 @@
----
-# Add a more recent nodejs version by default.
-nodejs_version: 4.x
