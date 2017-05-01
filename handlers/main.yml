@@ -1,3 +1,8 @@
 ---
 - name: restart maildev
-  service: name=maildev state=restarted
+  shell: >
+    /etc/init.d/maildev restart
+  args:
+    executable: /bin/bash
+  environment:
+    PATH: "{{ nvm_bin_dir }}:{{ ansible_env.PATH }}"

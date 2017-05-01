@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 ### BEGIN INIT INFO
 # Provides: maildev
 # Required-Start: $remote_fs $syslog
@@ -16,11 +16,11 @@ case "$1" in
    $(which maildev) -s {{ maildev_smtp_port}} -w {{ maildev_http_port}} &
    ;;
  stop)
-   kill -9 $(ps ax |grep "node /usr/bin/maildev" |grep -v grep |awk '{print $1}') 2> /dev/null
+   kill -9 $(ps ax |grep "/bin/maildev" |grep -v grep |awk '{print $1}') 2> /dev/null
    sleep 1
    ;;
  restart)
-   kill -9 $(ps ax |grep "node /usr/bin/maildev" |grep -v grep |awk '{print $1}') 2> /dev/null
+   kill -9 $(ps ax |grep "/bin/maildev" |grep -v grep |awk '{print $1}') 2> /dev/null
    sleep 2
    $(which maildev) -s {{ maildev_smtp_port}} -w {{ maildev_http_port}} &
    ;;
