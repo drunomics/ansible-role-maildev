@@ -24,6 +24,14 @@ case "$1" in
    sleep 2
    $(which maildev) -s {{ maildev_smtp_port}} -w {{ maildev_http_port}} &
    ;;
+ status)
+   ps ax |grep "/bin/maildev" |grep -v grep > /dev/null
+   if [ $? = 0 ]; then
+     echo maildev is running.
+   else
+     echo maildev is not running.
+   fi
+   ;;
  *)
    echo "Usage: maildev {start|stop|restart}" >&2
    exit 3
