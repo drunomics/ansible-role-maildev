@@ -8,6 +8,11 @@
   template: src=etc-init.d-maildev.j2 dest=/etc/init.d/maildev mode=0755
   notify: restart maildev
 
+- name: Update rc.d
+  command:
+    update-rc.d maildev defaults
+    creates=/etc/rc2.d/S20solr
+
 - name: Start maildev
   service: name=maildev state=started
   environment:
