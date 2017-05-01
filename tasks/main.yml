@@ -11,7 +11,7 @@
 - name: Update rc.d
   command:
     update-rc.d maildev defaults
-    creates=/etc/rc2.d/S20solr
+    creates=/etc/rc2.d/S20maildev
 
 - name: Start maildev
   service: name=maildev state=started
