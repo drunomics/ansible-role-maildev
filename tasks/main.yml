@@ -1,8 +1,6 @@
 ---
 - name: Install maildev
   npm: name=maildev global=yes state=present
-  environment:
-    PATH: "{{ nvm_bin_dir }}:{{ ansible_env.PATH }}"
 
 - name: Create startup script for maildev
   template: src=etc-init.d-maildev.j2 dest=/etc/init.d/maildev mode=0755
@@ -15,5 +13,3 @@
 
 - name: Start maildev
   service: name=maildev state=started
-  environment:
-    PATH: "{{ nvm_bin_dir }}:{{ ansible_env.PATH }}"
